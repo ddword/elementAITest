@@ -4,3 +4,6 @@
   background-color: #eaebeb;
   padding: 16px;
 }
+.FileTree ul {
+  min-width: 380px;
+}

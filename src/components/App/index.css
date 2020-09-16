@@ -23,3 +23,7 @@
   flex: 1;
   height: 100%;
 }
+ul {
+  list-style-type: none;
+}
+

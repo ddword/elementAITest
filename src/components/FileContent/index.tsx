@@ -15,7 +15,8 @@ const FileContent: React.FC<Props> = (props) => {
           Object.values(props.context).map((item, index) => (
             <li key={index}>{item}</li> 
           ))
-        : ''  
+        : <span>Implement your FileContent component here. This component should present
+        the content of the file that was selected from the file tree.</span> 
       }  
       </ul>
     </div> 
@@ -23,10 +24,3 @@ const FileContent: React.FC<Props> = (props) => {
 };
 
 export default FileContent;
-/*return (
-    <div className="FileContent">
-      Implement your FileContent component here. This component should present
-      the content of the file that was selected from the file tree.
-    </div>
-  );*/
-

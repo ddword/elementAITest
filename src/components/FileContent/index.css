@@ -2,3 +2,12 @@
   display: flex;
   padding: 16px;
 }
+
+.FileContent ul li {
+  padding: 15px 0;
+}
+
+.FileContent ul li:first-child {
+  font-size: 1.2em;
+  font-weight: 300;
+}
