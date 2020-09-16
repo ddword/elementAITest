@@ -8,7 +8,6 @@ import { fade, makeStyles, withStyles, Theme, createStyles } from '@material-ui/
 import TreeView from '@material-ui/lab/TreeView';
 import TreeItem, { TreeItemProps } from '@material-ui/lab/TreeItem';
 import Collapse from '@material-ui/core/Collapse';
-// import { useSpring, animated } from 'react-spring/web.cjs'; // web.cjs is required for IE 11 support
 import { TransitionProps } from '@material-ui/core/transitions';
 
 function MinusSquare(props: SvgIconProps) {
@@ -97,9 +96,9 @@ const FileTree: React.FC<Props> = (props) => {
           {
             props.data.map((file: Ifile, index) => (
               <ul key = {index} onClick={()=>onSelect(file)}>
-                <li>
+                <a><li>
                   { groupe(file)[0] == group && file.path}
-                </li>
+                </li></a>
               </ul> 
             ))
           }  
