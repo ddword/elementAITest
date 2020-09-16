@@ -69,16 +69,16 @@ const FileTree: React.FC<Props> = (props) => {
     props.parentCallback(file);
   }
 
-  const groupe = (file: Ifile) => {
-    let g = file.path.slice(1).split("/")
-    return g
-  }
-
-  const list = () => {
+  const filterList = () => {
     let array = props.data.map((file)=>(file.path.slice(1).split("/")))
     let unique = [...Array.from(new Set(array.map(element => element[0] !== element[element.length - 1] ? element[0] : null)))]; 
     return unique.filter(el => el != null)
   }
+
+  const getGroupe = (file: Ifile) => {
+    let g = file.path.slice(1).split("/")
+    return g
+  }  
 
   const classes = useStyles();
   return (
@@ -90,22 +90,33 @@ const FileTree: React.FC<Props> = (props) => {
         defaultExpandIcon={<PlusSquare />}
         >
         <StyledTreeItem nodeId="1" label="File tree">
-        {
-        list().map((group, idx) => (
-          <StyledTreeItem nodeId="3" key={idx} label={group}>
+          {
+            filterList().map((folderGroup, idx) => (
+              <StyledTreeItem nodeId="2" key={idx} label={folderGroup}>
+              {
+                props.data.map((file: Ifile, index) => (
+                  <ul key = {index} onClick={()=>onSelect(file)}>
+                    <a><li>
+                      { getGroupe(file)[0] == folderGroup && file.path}
+                    </li></a>
+                  </ul> 
+                ))
+              }  
+              </StyledTreeItem>
+            ))
+          } 
           {
             props.data.map((file: Ifile, index) => (
               <ul key = {index} onClick={()=>onSelect(file)}>
-                <a><li>
-                  { groupe(file)[0] == group && file.path}
-                </li></a>
+                <a>
+                  <li>
+                  { getGroupe(file)[0] == file.path.slice(1) && file.path}
+                  </li>
+                </a>
               </ul> 
-            ))
-          }  
-          </StyledTreeItem>
-        )) 
-        } 
-        </StyledTreeItem> 
+            )) 
+          }
+        </StyledTreeItem>
       </TreeView> 
     </div>
   );

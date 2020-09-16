@@ -28,20 +28,25 @@ You're may also install any libraries and build tools you're used to working wit
 To submit, .zip your completed challenge and send it to us in a return email. Please remove your `node_modules` directory before zipping. We also encourage you to include a small summary of your approach and describe anything you've left out for further discussion.
 
 ## Summary of the approach
-- To describe shape of file object I used interface Ifile
+- To describe shape of file object I used interface `Ifile`
 
-- To pass event from FileTree.js (Child) to App.js (Parent) use callback approach: 
-    defined callback in Parent -> 
-    pass it as a prop to the child ->
-    call the callback using props.parentCallback in the child
+- To pass event from `FileTree.js (Child)` to `App.js (Parent)` use callback approach: 
+    - defined callback in Parent -> 
+    - pass it as a prop to the child ->
+    - call the callback using props.parentCallback in the child
 
-- To manage application state use React Hook useState() and made lift up state from FileTree.js to App.js and then pass current state to FileContent.
+- To manage application state use React Hook useState() and made lift up state from `FileTree.js` to `App.js` and then pass current state to FileContent.
 
-- You click on the li element of hierarchical list, event emit to App.js -> update state in useState -> new state cames to the FileContent -> you see file data
+- How it works:
+    - You click on the li element of hierarchical list ->
+    - event passed to `App.js` -> 
+    - update state in `useState` -> 
+    - new state comes to the `FileContent` -> 
+    - you see file data
 
-- To stylize html use web-components from material-ui, roboto-font and material-ui/icons. To see how it works together with components you also need to add it in project folder.
-    yarn add @material-ui/core
-    npm install fontsource-roboto
-    yarn add @material-ui/icons
+- To stylize html use web-components from `material-ui`, `roboto-font` and `material-ui/icons`. To see how it works together with components you also need to add it in project folder.
+    `yarn add @material-ui/core`
+    `npm install fontsource-roboto`
+    `yarn add @material-ui/icons`
 
-- To display the hierarchical list in FileTree I took widget Tree View from @material-ui/lab/TreeView
+- To display the hierarchical list in FileTree I took widget Tree View from `@material-ui/lab/TreeView`
